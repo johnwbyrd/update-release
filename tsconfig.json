@@ -1,0 +1,15 @@
+{
+    "files": [
+        "src/main.ts",
+    ],
+    "compilerOptions": {
+        "noImplicitAny": true,
+        "target": "es5",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "outDir": "dist",
+        "esModuleInterop": true,
+        "sourceMap": true,
+        "allowJs": true
+    }
+}

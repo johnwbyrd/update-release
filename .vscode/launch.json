@@ -7,15 +7,22 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch main.ts",
-            //"skipFiles": [
-            //    "<node_internals>/**"
-            //],
+            "name": "Launch main.ts (development)",
             "program": "${workspaceFolder}/src/main.ts",
             "outFiles": [
-                "${workspaceFolder}/dist/*.js"
+                "${workspaceFolder}/dist/main.js"
             ],
-            "preLaunchTask": "gulp"
+            "sourceMaps": true
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch main.ts (production)",
+            "program": "${workspaceFolder}/src/main.ts",
+            "outFiles": [
+                "${workspaceFolder}/dist/main.js"
+            ],
+            "sourceMaps": true
         }
     ]
 }

@@ -1,0 +1,45 @@
+name: 'Update Release'
+description: 'Make fresh build assets available via Github release system'
+author: 'John Byrd <jbyrd at giganticsoftware dot com>'
+inputs: 
+  token:
+    description: 'Your Github token; try \$\{\{ secrets.GITHUB_TOKEN \}\} if your build lasts less than an hour, or create your own secret token with repository access if your build requires longer than an hour.'
+    required: true
+  files:
+    description: 'Paths to built files to be released. May be absolute or relative to \$\{\{ github.workspace \}\}.'
+    required: true
+  release:
+    description: 'The name of the release to be created. A reasonable looking release name will be created from the current \$\{\{ github.ref \}\} if this input is not supplied.'
+    required: false
+  tag:
+    description: 'The name of the tag to be used. If not provided, the name of the release will be used.'
+    required: false
+  message:
+    description: 'A one-line description for both the tag and the release.'
+    required: false
+  body:
+    description: 'A fuller description of the release.'
+    required: false
+  prerelease:
+    description: 'Should the release, if created, be marked as a prerelease?  Such releases are generally publicly visible.'
+    default: true
+  draft:
+    description: 'Should the release, if created, be marked as a draft?  Such releases are generally not publicly visible.'
+    default: false
+outputs:
+  files:
+    description: 'The calculated path(s) to the files that were released.'
+  draft:
+    description: 'Whether the release, if created, was marked as a draft.'
+  prerelease:
+    description: 'Whether the release, if created, was marked as a prerelease.'
+  release:
+    description: 'The calculated human-friendly name of the release.'
+  tag:
+    description: 'The calculated tag for the release.'
+runs:
+  using: 'node12'
+  main: 'dist/main.js'  
+branding:
+  icon: wind
+  color: blue

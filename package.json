@@ -1,0 +1,46 @@
+{
+  "name": "update-release",
+  "version": "1.0.0",
+  "description": "a smarter way to make fresh build assets continuously available, with Github actions",
+  "private": true,
+  "main": "./dist/main.js",
+  "scripts": {
+    "bundle": "webpack --mode production",
+    "test": "webpack --mode development",
+    "test-watch": "webpack --mode development --watch",
+    "test-compile": "tsc -p ./"
+  },
+  "keywords": [
+    "github",
+    "octokit",
+    "release",
+    "ci",
+    "build",
+    "actions",
+    "action"
+  ],
+  "author": "John Byrd <jbyrd@giganticsoftware.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.17.0",
+    "@typescript-eslint/parser": "^2.17.0",
+    "eslint": "^6.8.0",
+    "eslint-loader": "^3.0.3",
+    "fancy-log": "^1.3.3",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.5",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  },
+  "dependencies": {
+    "@actions/core": "^1.2.1",
+    "@actions/github": "^2.0.1",
+    "@octokit/core": "^2.2.0",
+    "@octokit/plugin-retry": "^3.0.1",
+    "@octokit/plugin-throttling": "^3.1.0",
+    "@octokit/types": "^2.0.2",
+    "@types/mime-types": "^2.1.0",
+    "dotenv": "^8.2.0",
+    "mime-types": "^2.1.26"
+  }
+}
