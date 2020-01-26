@@ -1,0 +1,41 @@
+name: Integration tests
+
+env:
+  title: 'update-release'
+  desc: 'We eat our own dogfood here. We use update-release to release update-release, to prove that it works on all targets.'
+
+on:
+  push:
+    branches:
+      master
+    tags:
+      'v**'
+
+jobs:
+  ci:
+    name: Continuous integration
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          - windows-latest
+          - macOS-latest
+    steps:
+    - name: Install gnuwin32 and zip on Windows
+      if: startsWith(matrix.os, 'windows')
+      run: choco install gnuwin32-coreutils.install zip
+    - name: Build bundle with npm
+      run: |
+        npm install
+        npm run bundle
+    - name: Zip distribution
+      run: |
+        zip -9 -r ${ env.title }-${{ matrix.os }}.zip .
+    - name: Update release
+      uses: johnwbyrd/update-release@master
+      id: update-release
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        files: ${ env.title }-${{ matrix.os }}.zip
