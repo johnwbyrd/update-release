@@ -34,10 +34,10 @@ jobs:
         npm run bundle
     - name: Zip distribution
       run: |
-        zip -9 -r ${ UPDATE_RELEASE_TITLE }-${{ matrix.os }}.zip .
+        zip -9 -r update-release-${{ matrix.os }}.zip .
     - name: Update release
       uses: johnwbyrd/update-release@master
       id: update-release
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        files: ${ UPDATE_RELEASE_TITLE }-${{ matrix.os }}.zip
+        files: update-release-${{ matrix.os }}.zip
