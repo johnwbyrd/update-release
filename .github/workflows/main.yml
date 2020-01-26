@@ -26,6 +26,8 @@ jobs:
     - name: Install gnuwin32 and zip on Windows
       if: startsWith(matrix.os, 'windows')
       run: choco install gnuwin32-coreutils.install zip
+    - name: Check out sources
+      uses: actions/checkout@v2
     - name: Build bundle with npm
       run: |
         npm install
