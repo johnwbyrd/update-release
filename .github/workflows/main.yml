@@ -34,7 +34,8 @@ jobs:
         npm run bundle
     - name: Zip distribution
       run: |
-        zip -9 -r update-release-${{ matrix.os }}.zip .
+        zip -9 update-release-${{ matrix.os }}.zip .
+        zip -9 -r update-release-${{ matrix.os }}.zip src dist img node_modules .github
     - name: Update release
       uses: johnwbyrd/update-release@master
       id: update-release
