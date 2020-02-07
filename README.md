@@ -101,7 +101,7 @@ This parameter is required.
 
 ### release
     
-The name of the release to be created. A reasonable looking release name will be created from the current `${{ github.ref }}` if this input is not supplied. This reasonable looking default is created by taking `${{ github.ref }}`, removing the prefixes `refs/`, `heads/`, and `tags/` , and then replacing any remaining forward-slash symbols `/` with dashes `-`.
+The name of the release to be created. A reasonable-looking release name will be created from the current `${{ github.ref }}` if this input is not supplied. This reasonable looking default is created by taking `${{ github.ref }}`, removing the prefixes `refs/`, `heads/`, and `tags/` , and then replacing any remaining forward-slash symbols `/` with dashes `-`.
 
 If you don't like this behavior, just override the release name here yourself.
 
