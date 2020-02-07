@@ -95,7 +95,7 @@ This parameter is required.
 
 ### files
 
-This should file names and optional paths for file(s) you just built on the runner.  If you use relative paths, it should be relative to `${{ github.workspace }}`.
+This should be the paths to files that you wish to add to the release.  Presumbly, this should include at least the file(s) you just built.  File paths can be provided as absolute paths, or they can alternately be relative to `${{ github.workspace }}`.  
 
 This parameter is required.
 
